@@ -1,0 +1,152 @@
+@use './variables/fonts';
+@use './variables/colors';
+@use './variables/positions';
+@use './variables/borders';
+@use './mixins/mixins';
+
+body {
+  font-family: fonts.$primary;
+}
+
+.header {
+  margin-top: 121px;
+  text-align: center;
+  padding: 0 10px;
+
+  &_heading-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &_image-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    &_image {
+      max-width: 20px;
+      width: 100%;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 210px;
+      border-top: borders.$primary;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      max-width: 210px;
+      border-top: borders.$primary;
+    }
+  }
+}
+
+.center {
+  max-width: 1170px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.heading {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.1719;
+  color: colors.$text;
+  text-transform: capitalize;
+
+  &__s {
+    font-family: fonts.$secondary;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.333;
+    color: colors.$text-light;
+    text-transform: uppercase;
+  }
+
+  &__xl {
+    font-size: 60px;
+    line-height: 1.1;
+    color: colors.$primary;
+    text-transform: uppercase;
+  }
+
+  &__l {
+    font-family: fonts.$secondary;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+}
+
+.main {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  // min-height: 560px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  width: 50%;
+}
+
+.card {
+  position: relative;
+  margin: 15px;
+  max-width: 400px;
+
+  &_corner-top-left {
+    @include mixins.corner;
+  }
+
+  &_corner-top-right {
+    @include mixins.corner($left: false);
+  }
+
+  &_corner-bottom-left {
+    @include mixins.corner($top: false);
+  }
+
+  &_corner-bottom-right {
+    @include mixins.corner(false, false);
+  }
+
+  &_image-container {
+    max-width: 400px;
+    max-height: 400px;
+
+    &_item {
+      border: borders.$primary;
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  width: 50%;
+  min-height: 560px;
+  border-left: borders.$primary;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 430px;
+}

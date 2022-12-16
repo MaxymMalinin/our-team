@@ -1,0 +1,24 @@
+@use '../variables/borders';
+@use '../variables/positions';
+
+@mixin corner($top: true, $left: true) {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  @if $top {
+    top: positions.$primary;
+    border-top: borders.$primary;
+  } @else {
+    bottom: positions.$primary;
+    border-bottom: borders.$primary;
+  }
+
+  @if $left {
+    left: positions.$primary;
+    border-left: borders.$primary;
+  } @else {
+    right: positions.$primary;
+    border-right: borders.$primary;
+  }
+}
