@@ -3,8 +3,8 @@
 
 @mixin corner($top: true, $left: true) {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: clamp(40px, 10vw, 100px);
+  height: clamp(40px, 10vw, 100px);
 
   @if $top {
     top: positions.$primary;
